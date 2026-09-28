@@ -5,22 +5,25 @@ import ServicesSection from './views/services';
 import ClientsSection from './views/clients';
 import GallerySection from './views/gallery';
 import ContactSection from './views/contact';
+import { MotionConfig } from 'motion/react';
 
 function App() {
   return (
-    <div className='min-h-screen flex flex-col bg-white text-slate-900 selection:bg-orange-500 selection:text-white'>
-      <Navbar />
+    <MotionConfig reducedMotion='user'>
+      <div className='min-h-screen flex flex-col bg-white text-slate-900 selection:bg-orange-500 selection:text-white'>
+        <Navbar />
 
-      <main className='flex-1'>
-        <HeroSection />
-        <ServicesSection />
-        <ClientsSection />
-        <GallerySection />
-        <ContactSection />
-      </main>
+        <main className='flex-1'>
+          <HeroSection />
+          <ServicesSection />
+          <ClientsSection />
+          <GallerySection />
+          <ContactSection />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </MotionConfig>
   );
 }
 

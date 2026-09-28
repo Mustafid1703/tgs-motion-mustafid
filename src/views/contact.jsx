@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import ContentContainer from '@/components/ContentContainer';
+import { SectionMotion } from '@/components/Motion';
 
 function ContactSection() {
   const handleSubmit = (e) => {
@@ -13,7 +14,7 @@ function ContactSection() {
       className='py-16 bg-white'>
       <ContentContainer isRelative={false}>
         {/* Header */}
-        <div className='text-center max-w-xl mx-auto mb-10'>
+        <SectionMotion className='text-center max-w-xl mx-auto mb-10'>
           <span className='text-xs font-semibold px-3 py-1 rounded-full bg-orange-100 text-main'>
             Kontak
           </span>
@@ -23,12 +24,12 @@ function ContactSection() {
           <p className='text-slate-600 text-sm mt-2'>
             Diskusikan kebutuhan proyek Anda bersama tim engineer Sandbox.
           </p>
-        </div>
+        </SectionMotion>
 
         {/* 2 Kolom Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
           {/* Info Kontak */}
-          <div className='bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col justify-between'>
+          <SectionMotion className='bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col justify-between'>
             <div>
               <h3 className='text-lg font-bold text-[#112352] mb-4'>
                 Informasi Kontak
@@ -64,10 +65,11 @@ function ContactSection() {
             <div className='mt-8 pt-4 border-t border-slate-200 text-xs text-slate-500'>
               Senin - Jumat : 08.30 - 17.30 WIB
             </div>
-          </div>
+          </SectionMotion>
 
           {/* Form Sederhana */}
-          <form
+          <SectionMotion
+            as='form'
             onSubmit={handleSubmit}
             className='bg-slate-50 p-6 rounded-xl border border-slate-200 space-y-4'>
             <div>
@@ -112,7 +114,7 @@ function ContactSection() {
               <span>Kirim Pesan</span>
               <Send size={14} />
             </button>
-          </form>
+          </SectionMotion>
         </div>
       </ContentContainer>
     </section>

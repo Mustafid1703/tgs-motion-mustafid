@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ContentContainer from '@/components/ContentContainer';
+import { SectionMotion, MotionList, MotionItem } from '@/components/Motion';
 
 const categories = [
   { id: 'all', label: 'Semua' },
@@ -79,7 +80,7 @@ function GallerySection() {
       className='py-16 bg-slate-50'>
       <ContentContainer isRelative={false}>
         {/* Header */}
-        <div className='text-center max-w-xl mx-auto mb-8'>
+        <SectionMotion className='text-center max-w-xl mx-auto mb-8'>
           <span className='text-xs font-semibold px-3 py-1 rounded-full bg-orange-100 text-main'>
             Galeri
           </span>
@@ -89,7 +90,7 @@ function GallerySection() {
           <p className='text-slate-600 text-sm mt-2'>
             Dokumentasi workshop inovasi dan rilis teknologi Sandbox.
           </p>
-        </div>
+        </SectionMotion>
 
         {/* Filter Buttons */}
         <div className='flex flex-wrap items-center justify-center gap-2 mb-8'>
@@ -108,9 +109,9 @@ function GallerySection() {
         </div>
 
         {/* Gallery Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <MotionList key={activeCategory} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {filteredItems.map((item) => (
-            <div
+            <MotionItem
               key={item.id}
               className='bg-white rounded-xl overflow-hidden border border-slate-200'>
               <div className='aspect-video w-full overflow-hidden'>
@@ -129,9 +130,9 @@ function GallerySection() {
                   {item.title}
                 </h3>
               </div>
-            </div>
+            </MotionItem>
           ))}
-        </div>
+        </MotionList>
       </ContentContainer>
     </section>
   );

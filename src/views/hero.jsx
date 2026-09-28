@@ -2,6 +2,7 @@ import { ArrowRight, MessageSquare } from 'lucide-react';
 import heroImg from '@/assets/hero-img.png';
 import { handleSmoothScroll } from '@/utils/functions';
 import ContentContainer from '@/components/ContentContainer';
+import { SectionMotion, MotionList, MotionItem } from '@/components/Motion';
 
 const stats = [
   { value: '150+', label: 'Proyek Selesai' },
@@ -14,7 +15,7 @@ function HeroSection() {
   return (
     <header id='beranda' className='py-12 md:py-20'>
       <ContentContainer isRelative={false} className='flex flex-col gap-12'>
-        <div className='flex flex-col lg:flex-row items-center gap-10'>
+        <SectionMotion className='flex flex-col lg:flex-row items-center gap-10'>
           
           {/* Kolom Kiri: Teks & Tombol */}
           <div className='w-full lg:w-1/2 flex flex-col gap-5 text-center lg:text-left'>
@@ -56,17 +57,17 @@ function HeroSection() {
             />
           </div>
 
-        </div>
+        </SectionMotion>
 
         {/* Stats Strip */}
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-slate-50 rounded-xl text-center border border-slate-100'>
+        <MotionList className='grid grid-cols-2 md:grid-cols-4 gap-4 p-6 bg-slate-50 rounded-xl text-center border border-slate-100'>
           {stats.map((item) => (
-            <div key={item.label} className='p-2'>
+            <MotionItem key={item.label} className='p-2'>
               <h3 className='text-2xl font-bold text-main'>{item.value}</h3>
               <p className='text-xs text-slate-500 mt-1'>{item.label}</p>
-            </div>
+            </MotionItem>
           ))}
-        </div>
+        </MotionList>
       </ContentContainer>
     </header>
   );

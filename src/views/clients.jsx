@@ -1,5 +1,6 @@
 import { Star, Quote, Building } from 'lucide-react';
 import ContentContainer from '@/components/ContentContainer';
+import { SectionMotion, MotionList, MotionItem } from '@/components/Motion';
 
 const partners = [
   { name: 'Kementerian Kominfo', category: 'Pemerintah' },
@@ -50,7 +51,7 @@ function ClientsSection() {
       className='py-16 bg-white'>
       <ContentContainer isRelative={false}>
         {/* Header */}
-        <div className='text-center max-w-xl mx-auto mb-10'>
+        <SectionMotion className='text-center max-w-xl mx-auto mb-10'>
           <span className='text-xs font-semibold px-3 py-1 rounded-full bg-orange-100 text-main'>
             Klien & Mitra
           </span>
@@ -60,12 +61,12 @@ function ClientsSection() {
           <p className='text-slate-600 text-sm mt-2'>
             Kolaborasi teknologi bersama instansi pemerintah dan industri.
           </p>
-        </div>
+        </SectionMotion>
 
         {/* Partner Badges */}
-        <div className='flex flex-wrap items-center justify-center gap-3 mb-12'>
+        <MotionList className='flex flex-wrap items-center justify-center gap-3 mb-12'>
           {partners.map((p) => (
-            <div
+            <MotionItem
               key={p.name}
               className='flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-50 border border-slate-200'>
               <Building
@@ -76,14 +77,14 @@ function ClientsSection() {
                 <p className='text-xs font-bold text-slate-800'>{p.name}</p>
                 <p className='text-[10px] text-slate-500'>{p.category}</p>
               </div>
-            </div>
+            </MotionItem>
           ))}
-        </div>
+        </MotionList>
 
         {/* Testimonials Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+        <MotionList className='grid grid-cols-1 md:grid-cols-3 gap-6'>
           {testimonials.map((item) => (
-            <div
+            <MotionItem
               key={item.id}
               className='bg-slate-50 p-6 rounded-xl border border-slate-200 flex flex-col justify-between relative'>
               <Quote
@@ -120,9 +121,9 @@ function ClientsSection() {
                   <p className='text-[11px] text-slate-500'>{item.role}</p>
                 </div>
               </div>
-            </div>
+            </MotionItem>
           ))}
-        </div>
+        </MotionList>
       </ContentContainer>
     </section>
   );

@@ -1,5 +1,6 @@
 import { Globe, Smartphone, Cloud, Layers, Cpu, ShieldCheck } from 'lucide-react';
 import ContentContainer from '@/components/ContentContainer';
+import { SectionMotion, MotionList, MotionItem } from '@/components/Motion';
 
 const services = [
   {
@@ -46,7 +47,7 @@ function ServicesSection() {
       <ContentContainer isRelative={false}>
         
         {/* Header Section */}
-        <div className='text-center max-w-xl mx-auto mb-10'>
+        <SectionMotion className='text-center max-w-xl mx-auto mb-10'>
           <span className='text-xs font-semibold px-3 py-1 rounded-full bg-orange-100 text-main'>
             Layanan
           </span>
@@ -56,14 +57,14 @@ function ServicesSection() {
           <p className='text-slate-600 text-sm mt-2'>
             Layanan teknologi untuk skalabilitas dan keandalan sistem Anda.
           </p>
-        </div>
+        </SectionMotion>
 
         {/* Grid Layanan */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <MotionList className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {services.map((item) => {
             const Icon = item.icon;
             return (
-              <div
+              <MotionItem
                 key={item.id}
                 className='bg-white p-6 rounded-xl border border-slate-200'>
                 <div className='w-10 h-10 rounded-lg bg-orange-50 text-main flex items-center justify-center mb-4'>
@@ -75,10 +76,10 @@ function ServicesSection() {
                 <p className='text-slate-600 text-xs sm:text-sm leading-relaxed'>
                   {item.desc}
                 </p>
-              </div>
+              </MotionItem>
             );
           })}
-        </div>
+        </MotionList>
 
       </ContentContainer>
     </section>
